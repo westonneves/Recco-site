@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What we do — Recco</title>
+<meta name="description" content="What Recco does for your business: get recommended by AI assistants, not just listed — and see what it is worth. Four things that change once AI knows you.">
+
+<!-- ============================================================
+     EDIT THESE FIVE LINES AND THE SITE IS LIVE
+     ============================================================ -->
+<script>
+window.RECCO = {
+  WEBHOOK_URL: "",                      // paste your n8n / Make / Zapier catch-hook URL
+  EMAIL:       "hello@recco.co",        // your real address
+  PHONE:       "",                      // optional — leave "" to hide
+  CITY:        "Rexburg, Idaho",        // shown in the footer
+  DOMAIN:      "recco.co",              // shown in the footer
+  TURNAROUND:  "one business day"       // what you promise on the form
+};
+</script>
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:title" content="What we do — Recco">
+<meta property="og:description" content="Become the obvious answer. What Recco does, and what changes when AI knows your business.">
+<meta property="og:image" content="/social-og-banner-1200x630.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@450;500&display=swap">
+
+<style>
+  :root{
+    --crimson:#710014;        /* small marks on light grounds */
+  --crimson-field:#6A0012;  /* large crimson fields — reads lighter, so go a hair deeper */
+  --crimson-dark:#7E0517;   /* crimson on obsidian — lifted so it reads the same */
+  --sand:#B38F6F; --stone:#A39385;
+    --pearl:#F2F1ED;   --obsidian:#161616;
+    --ground:#EEE6D9;
+    --ink:#161616; --ink-2:#52504A; --line:rgba(22,22,22,.14);
+    --display:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    --body:"Newsreader",ui-serif,Georgia,"Times New Roman",serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img,svg{max-width:100%}
+  .wrap{max-width:1080px;margin:0 auto;padding-left:24px;padding-right:24px}
+  @media (max-width:520px){.wrap{padding-left:18px;padding-right:18px}}
+
+  h1,h2,h3,.dsp{font-family:var(--display);font-weight:600;letter-spacing:-.028em;line-height:1.08;text-wrap:balance}
+  h1{font-size:clamp(38px,6.4vw,70px)}
+  h2{font-size:clamp(27px,3.6vw,40px);letter-spacing:-.024em}
+  h3{font-size:19px;letter-spacing:-.016em;line-height:1.3}
+  .eb{font-family:var(--mono);font-size:12.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--crimson)}
+  .lead{font-size:clamp(18px,2.1vw,21px);color:var(--ink-2);max-width:54ch}
+  p+p{margin-top:1em}
+
+  /* hero line two holds together above phone width */
+  .nb{white-space:nowrap}
+  @media (max-width:560px){.nb{white-space:normal}}
+
+  /* the lit line — once per view */
+  .sig{position:relative;white-space:nowrap}
+  .sig::after{content:"";position:absolute;left:0;right:0;bottom:-.13em;height:.08em;border-radius:.05em;background:var(--crimson)}
+  .on-dark .sig::after{background:var(--sand)}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:20;background:rgba(238,230,217,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:20px;padding:15px 0}
+  .lk{display:block;width:auto;height:30px}
+  .nav .btn{margin-left:20px}
+  .navlinks{margin-left:auto;display:flex;gap:24px}
+  .navlinks a{font-family:var(--display);font-weight:500;font-size:15px;letter-spacing:-.01em;
+              color:var(--ink);text-decoration:none;padding:4px 0;border-bottom:1.5px solid transparent}
+  .navlinks a:hover,.navlinks a[aria-current]{border-bottom-color:var(--crimson)}
+  .t-sm{display:none}
+  @media (max-width:620px){
+    .nav{gap:13px}
+    .lk{height:26px}
+    .navlinks{gap:14px}
+    .navlinks a{font-size:13.5px}
+    .nav .btn{margin-left:13px;font-size:13.5px;padding:10px 16px}
+    .t-lg{display:none}
+    .t-sm{display:inline}
+  }
+
+  .btn{display:inline-block;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.01em;
+        background:var(--crimson);color:var(--pearl);border:0;border-radius:999px;padding:12px 22px;cursor:pointer;
+        text-decoration:none;white-space:nowrap;transition:transform .12s ease,opacity .12s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn:active{transform:translateY(0)}
+  .btn:focus-visible{outline:3px solid var(--crimson);outline-offset:3px}
+  .btn[disabled]{opacity:.55;cursor:default;transform:none}
+  .btn-lg{font-size:17px;padding:16px 30px}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid rgba(22,22,22,.28)}
+  .demo-sec .btn,.form-sec .btn,footer .btn{background:var(--crimson-dark)}
+  .demo-sec .btn:focus-visible,.form-sec .btn:focus-visible{outline-color:var(--crimson-dark)}
+
+  section{padding:clamp(64px,9vw,112px) 0}
+  .hero{padding-top:clamp(52px,7vw,84px)}
+  .hero .eb{margin-bottom:22px}
+  .hero h1{max-width:25ch}
+  .hero .lead{margin-top:26px}
+  .hero .cta{margin-top:38px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .micro{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-2)}
+
+  /* the demonstration */
+  .demo-sec{background:var(--obsidian);color:var(--pearl)}
+  .demo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:center}
+  @media (max-width:860px){.demo-grid{grid-template-columns:1fr}}
+  .demo-sec h2{max-width:20ch}
+  .demo-sec p{color:#C9C4BB;max-width:46ch;margin-top:20px}
+  .demo-sec .asked{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8A857C;margin:0 0 10px}
+  .plats{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+  .plats span{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#C9C4BB;border:1px solid rgba(242,241,237,.22);border-radius:999px;padding:5px 11px}
+  .panel{background:var(--pearl);color:var(--obsidian);border-radius:16px;padding:26px 26px 22px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+  .panel p{color:var(--obsidian)}
+  .panel .q{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:#6C665D;padding-bottom:16px;border-bottom:1px solid rgba(22,22,22,.14);
+            white-space:nowrap;max-width:none}
+  @media (max-width:430px){.panel .q{font-size:10px;letter-spacing:.04em}}
+  @media (max-width:360px){.panel .q{font-size:9px;letter-spacing:.02em}}
+  .panel .a{font-size:16.5px;line-height:1.55;margin-top:18px;color:var(--obsidian)}
+  .panel ol{list-style:none;margin:16px 0 0;counter-reset:n}
+  .panel li{counter-increment:n;display:flex;gap:11px;padding:9px 0;font-size:16px;align-items:baseline}
+  .panel li::before{content:counter(n) ".";font-family:var(--mono);font-size:12px;color:#6C665D;flex:none;width:16px}
+  .panel .you{margin-top:18px;padding-top:16px;border-top:1px solid rgba(22,22,22,.14);display:flex;gap:10px;align-items:baseline;font-size:15.5px;color:#4A463F}
+  .panel .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--crimson);color:var(--pearl);padding:3px 8px;border-radius:5px;flex:none}
+  .demo-sec .illus{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8A857C;margin-top:12px;text-align:right;max-width:none}
+
+  /* panel animation */
+  .abox{position:relative}
+  .think{position:absolute;left:0;top:20px;display:flex;gap:9px;align-items:center}
+  .think[hidden]{display:none!important}
+  .spark{width:14px;height:14px;flex:none;border-radius:50%;
+         background:conic-gradient(from 0deg,rgba(113,0,20,0) 0deg,rgba(113,0,20,.15) 140deg,var(--crimson) 330deg,var(--crimson) 360deg);
+         -webkit-mask:radial-gradient(circle,#0000 0 54%,#000 56%);mask:radial-gradient(circle,#0000 0 54%,#000 56%);
+         animation:spin .85s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .tword{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:#6C665D;opacity:1;
+         transition:opacity .18s ease}
+
+  .panel .caret{display:inline-block;width:.55em;height:1em;margin-left:2px;vertical-align:-.15em;
+                background:var(--crimson);opacity:0}
+  .panel.play .caret{opacity:1;animation:blink .9s steps(1,end) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .panel.play .a,
+  .panel.play li,
+  .panel.play .you{opacity:0;transform:translateY(6px)}
+  .panel.play.run .a,
+  .panel.play.run li,
+  .panel.play.run .you{opacity:1;transform:none;transition:opacity .45s ease,transform .45s ease}
+  .panel.play.run .a{transition-delay:.05s}
+  .panel.play.run li:nth-child(1){transition-delay:.35s}
+  .panel.play.run li:nth-child(2){transition-delay:.6s}
+  .panel.play.run li:nth-child(3){transition-delay:.85s}
+  .panel.play.run .you{transition-delay:1.3s}
+  .panel.play.run .tag{animation:pop .5s ease 1.3s both}
+  @keyframes pop{0%{transform:scale(.82)}60%{transform:scale(1.06)}100%{transform:scale(1)}}
+  @media (prefers-reduced-motion:reduce){
+    .panel .caret{display:none}
+    .think{display:none}
+    .panel.play .a,.panel.play li,.panel.play .you{opacity:1;transform:none}
+    .panel.play.run .tag{animation:none}
+  }
+
+  /* the research */
+  .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,4vw,64px);margin-top:44px}
+  @media (max-width:760px){.stats{grid-template-columns:1fr;gap:30px}}
+  .stat{border-top:2px solid var(--crimson);padding-top:18px}
+  .fig{font-family:var(--display);font-weight:600;font-size:clamp(44px,5.2vw,60px);letter-spacing:-.032em;line-height:1;color:var(--ink)}
+  .stat .txt{margin-top:14px;font-size:16px;color:var(--ink-2)}
+  .ast{font-size:.38em;vertical-align:super;color:#6C665D;margin-left:.06em;letter-spacing:0}
+  .ast-src{font-size:9.8px;line-height:0;vertical-align:.32em;margin-right:.18em}
+  .ast{font-size:15.5px;vertical-align:super;line-height:0;color:#6C665D;margin-left:.1em}
+  .src{font-family:var(--mono);font-size:8px;letter-spacing:.06em;line-height:1.7;color:#6C665D;margin-top:16px}
+  .aside{margin-top:clamp(44px,6vw,64px);background:rgba(255,252,247,.72);border:1px solid rgba(22,22,22,.07);border-radius:16px;
+         padding:clamp(26px,3.4vw,42px)}
+  .aside h3{font-size:clamp(23px,2.5vw,29px);line-height:1.12;letter-spacing:-.02em;color:var(--ink);max-width:26ch}
+  .aside p{margin-top:16px;font-size:16.5px;color:#4A463F;max-width:64ch}
+  .aside b{font-family:var(--display);font-weight:600;color:var(--ink);letter-spacing:-.01em}
+  .aside i{font-style:italic}
+  .aside ul{list-style:none;margin-top:18px;display:grid;gap:11px}
+  .aside li{position:relative;padding-left:26px;font-size:16.5px;line-height:1.5;color:#4A463F;max-width:64ch}
+  .aside li::before{content:"\2014";position:absolute;left:0;top:0;font-family:var(--mono);font-size:13px;line-height:1.9;color:var(--crimson)}
+  .aside h3 .sig::after{bottom:-.04em;height:.065em}
+  .aside .src{margin-top:18px;color:#6C665D;font-size:8px;letter-spacing:.06em;line-height:1.7}
+
+  /* what the analysis tells you */
+  .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:40px}
+  @media (max-width:700px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--pearl);padding:28px 26px 30px}
+  .card .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--crimson);margin-bottom:14px}
+  .card p{margin-top:9px;font-size:16px;color:var(--ink-2)}
+
+  /* the ledger */
+  .steps-sec{background:var(--sand);color:var(--obsidian)}
+  .steps-sec .stone-lead{max-width:54ch;margin-top:18px;font-size:17.5px;color:rgba(22,22,22,.78)}
+
+  .ledger{list-style:none;margin-top:clamp(34px,4.2vw,54px);
+          border-top:1px solid rgba(22,22,22,.26)}
+  .lrow{display:grid;grid-template-columns:58px minmax(0,1fr) minmax(0,1.1fr);
+        gap:clamp(16px,3vw,44px);align-items:start;
+        padding:clamp(22px,2.6vw,30px) 0;border-bottom:1px solid rgba(22,22,22,.26)}
+  .lnum{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--crimson);padding-top:7px}
+  .lkick{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+         color:rgba(22,22,22,.58);margin-bottom:9px}
+  .lrow h3{font-size:clamp(20px,2vw,24px);letter-spacing:-.02em;color:var(--obsidian)}
+  .lbody{font-size:16.5px;line-height:1.55;color:rgba(22,22,22,.76);max-width:48ch;padding-top:2px}
+  .ltotal{display:grid;grid-template-columns:58px minmax(0,1fr) minmax(0,1.1fr);
+          gap:clamp(16px,3vw,44px);align-items:baseline;
+          margin-top:22px;font-size:16.5px;color:rgba(22,22,22,.72)}
+  .ltotal .lt-label{grid-column:2}
+  .ltotal .lt-text{grid-column:3}
+  .lt-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+            color:var(--crimson);flex:none}
+  @media (max-width:820px){
+    .lrow{grid-template-columns:42px minmax(0,1fr);gap:14px;padding:22px 0}
+    .lbody{grid-column:2;margin-top:11px}
+    .lnum{padding-top:4px;font-size:11px}
+    .ltotal{grid-template-columns:42px minmax(0,1fr);gap:14px;margin-top:22px}
+    .ltotal .lt-label{grid-column:2}
+    .ltotal .lt-text{grid-column:2;margin-top:-4px}
+  }
+
+  /* the closing offer */
+  .btn-xl{font-size:19px;padding:21px 40px}
+  @media (max-width:380px){.btn-xl{font-size:16.5px;padding:18px 22px}}
+  .micro-dark{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:#9A948B}
+  .cta-row{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;justify-self:start;width:max-content;max-width:100%}
+  .form-sec .cta-row .micro-dark{margin-top:0;text-align:center}
+  .index-grid{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+              column-gap:clamp(24px,3.4vw,50px);margin-top:18px}
+  .form-sec .grid-label{margin-top:clamp(36px,4.5vw,50px);color:var(--pearl)}
+  @media (max-width:700px){.index-grid{grid-template-columns:1fr}}
+  .index-grid li{border-top:1px solid rgba(242,241,237,.18);padding:16px 0 26px}
+  .index-grid .ix{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--sand);margin-bottom:11px}
+  .index-grid .tx{display:block;font-family:var(--display);font-weight:500;letter-spacing:-.014em;line-height:1.3;
+                  font-size:clamp(18px,1.9vw,22px);color:var(--pearl);text-wrap:balance}
+  .form-sec .index-grid .sub{list-style:none;margin-top:13px}
+  .form-sec .index-grid .sub li{position:relative;border-top:0;padding:0 0 0 17px;
+                  font-family:var(--body);font-size:15.5px;line-height:1.5;color:#C9C4BB}
+  .form-sec .index-grid .sub li + li{margin-top:7px}
+  .form-sec .index-grid .sub li::before{content:"\2014";position:absolute;left:0;top:0;
+                  font-family:var(--mono);font-size:12px;line-height:1.55;color:var(--sand)}
+  .samples{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:start;
+           margin-top:clamp(40px,5vw,56px);padding-top:clamp(28px,4vw,38px);border-top:1px solid rgba(242,241,237,.16)}
+  @media (max-width:760px){.samples{grid-template-columns:1fr;gap:24px}}
+  .form-sec .colhead{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sand)}
+  .form-sec .samples-note{font-size:16px;margin-top:10px}
+  .samples-link{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+                text-transform:uppercase;color:var(--sand);text-decoration:none;border-bottom:1px solid rgba(179,143,111,.5);padding-bottom:3px}
+  .samples-link:hover{color:var(--pearl);border-bottom-color:rgba(242,241,237,.6)}
+  .thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.4vw,16px);margin-top:14px}
+  .thumbs figure{margin:0}
+  .thumbs span{display:block;aspect-ratio:8/10;border-radius:10px;border:1px solid rgba(242,241,237,.16);
+               background:linear-gradient(180deg,rgba(242,241,237,.10),rgba(242,241,237,.04))}
+  .thumbs figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8A857C;margin-top:9px}
+
+  /* form */
+  .form-sec{background:var(--obsidian);color:var(--pearl)}
+  .form-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(34px,5vw,70px);align-items:start}
+  @media (max-width:860px){.form-grid{grid-template-columns:1fr}}
+  .form-sec .eb{color:var(--sand)}
+  .form-sec p{color:#C9C4BB}
+  .form-sec ul{list-style:none;margin-top:26px}
+  .form-sec ul li{padding:11px 0;border-top:1px solid rgba(242,241,237,.16);font-size:16px;color:#C9C4BB}
+  .form-sec ul li b{color:var(--pearl);font-weight:500;font-family:var(--display);margin-right:7px}
+  .form-card{background:var(--pearl);color:var(--obsidian);border-radius:16px;padding:clamp(26px,3vw,38px)}
+  .form-card p{color:var(--ink-2)}
+  .fld{margin-bottom:16px}
+  .fld label{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6C665D;margin-bottom:7px}
+  .fld input,.fld textarea{width:100%;font-family:var(--body);font-size:16.5px;color:var(--ink);background:#FFF;
+      border:1.5px solid rgba(22,22,22,.18);border-radius:9px;padding:12px 14px}
+  .fld textarea{min-height:76px;resize:vertical}
+  .fld input:focus,.fld textarea:focus{outline:none;border-color:var(--crimson)}
+  .fld .opt{text-transform:none;letter-spacing:.02em;color:#6C665D}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .form-card .btn{width:100%;text-align:center;margin-top:6px}
+  .form-card .fine{font-family:var(--mono);font-size:11px;color:#6C665D;margin-top:14px;line-height:1.6;letter-spacing:.02em}
+  .msg{display:none;margin-top:16px;padding:14px 16px;border-radius:9px;font-size:15.5px;line-height:1.5}
+  .msg.ok{display:block;background:#E8EFE9;color:#1C3B26;border:1px solid #B9CFC0}
+  .msg.err{display:block;background:#F6E7E9;color:#5E121D;border:1px solid #D9B6BC}
+  .done h3{font-size:23px;margin-bottom:10px}
+  .done p{color:var(--ink-2)}
+
+  /* footer */
+  footer{background:var(--obsidian);color:var(--pearl);padding:52px 0 44px;border-top:1px solid rgba(242,241,237,.14)}
+  .foot{display:flex;gap:30px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap}
+  footer .lk{height:28px}
+  .foot .meta{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:#9A948B;line-height:1.9;text-align:right}
+  .foot .meta a{color:var(--sand);text-decoration:none}
+  .foot .meta a:hover{text-decoration:underline}
+  .foot .sitemap{display:flex;flex-direction:column;gap:9px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+  .foot .sitemap a{color:#C9C4BB;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px;width:max-content}
+  .foot .sitemap a:hover{color:var(--sand);border-bottom-color:rgba(179,143,111,.5)}
+  @media (max-width:620px){.foot .sitemap{margin-top:8px}}
+  @media (max-width:620px){.foot{flex-direction:column;align-items:flex-start}.foot .meta{text-align:left}}
+
+  /* ask — the second door */
+  .ask-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:clamp(30px,3.6vw,42px)}
+  .steps-sec .micro{color:rgba(22,22,22,.62)}
+  .ask{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:20px}
+  .ask[hidden]{display:none!important}
+  .ask-bd{position:absolute;inset:0;background:rgba(22,22,22,.62);backdrop-filter:blur(3px);animation:fade .22s ease}
+  .ask-card{position:relative;width:min(520px,100%);max-height:88vh;overflow:auto;
+            background:var(--pearl);color:var(--obsidian);border-radius:16px;
+            padding:clamp(26px,3.4vw,38px);box-shadow:0 30px 80px rgba(0,0,0,.45);
+            animation:rise .3s cubic-bezier(.22,.7,.2,1)}
+  @keyframes fade{from{opacity:0}}
+  @keyframes rise{from{opacity:0;transform:translateY(14px) scale(.985)}}
+  .ask-x{position:absolute;top:10px;right:12px;background:none;border:0;line-height:1;
+         font-family:var(--display);font-size:26px;color:#6C665D;cursor:pointer;padding:8px}
+  .ask-x:hover{color:var(--obsidian)}
+  .ask-eb{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson)}
+  .ask-card h3{font-size:clamp(22px,2.6vw,27px);margin-top:11px}
+  .ask-sub{color:var(--ink-2);margin-top:10px;font-size:16.5px}
+  .ask-card form{margin-top:24px}
+  .ask-card .btn{width:100%;text-align:center;margin-top:4px}
+  .ask-card .fine{font-family:var(--mono);font-size:11px;color:#6C665D;margin-top:13px;line-height:1.6;letter-spacing:.02em}
+  @media (prefers-reduced-motion:reduce){.ask-bd,.ask-card{animation:none}}
+
+  /* page two */
+  .lead-sec{padding-top:clamp(52px,7vw,84px)}
+  .ledger-dark{border-top-color:rgba(242,241,237,.22)}
+  .ledger-dark .lrow{border-bottom-color:rgba(242,241,237,.22)}
+  .ledger-dark .lnum{color:var(--sand)}
+  .ledger-dark .lkick{color:#8A857C}
+  .ledger-dark .lrow h3{color:var(--pearl)}
+  .ledger-dark .lbody{color:#C9C4BB}
+  .demo-sec .ledger-dark .lbody{max-width:48ch;margin-top:0}
+  .two-doors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,3.6vw,54px);margin-top:clamp(30px,3.6vw,44px)}
+  @media (max-width:760px){.two-doors{grid-template-columns:1fr;gap:34px}}
+  .door{border-top:2px solid var(--crimson);padding-top:20px}
+  .door h3{margin-top:9px;font-size:22px}
+  .door p{margin-top:10px;color:var(--ink-2);font-size:16.5px;max-width:42ch}
+  .door .btn{margin-top:20px}
+  .door .micro{margin-top:12px}
+
+  /* scroll choreography */
+  .prog{position:fixed;left:0;top:0;height:3px;width:0;background:var(--crimson);z-index:40;
+        transition:width .08s linear}
+  .js [data-rv]{opacity:0;transform:translateY(16px)}
+  .js [data-rv].in{opacity:1;transform:none;
+       transition:opacity .75s cubic-bezier(.22,.7,.2,1),transform .75s cubic-bezier(.22,.7,.2,1)}
+  .js [data-rv].in.rv-panel{transition-duration:.9s}
+  .js .sig::after{transform:scaleX(0);transform-origin:left;
+       transition:transform .42s cubic-bezier(.4,0,.7,1)}
+  .js .sig.lit::after{transform:scaleX(1);
+       transition:transform .85s cubic-bezier(.22,.7,.2,1) .25s}
+  @media (prefers-reduced-motion:reduce){
+    .js [data-rv],.js [data-rv].in{opacity:1;transform:none;transition:none}
+    .js .sig::after{transform:scaleX(1)}
+    .prog{display:none}
+  }
+
+  @media (max-width:700px){h1,h2{line-height:1.14}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <svg class="lk" xmlns="http://www.w3.org/2000/svg" viewBox="236.0 -1655.9 9589.1 2353.1">
+  <g transform="translate(0.00 -2240.64) scale(35.225600)">
+    <mask id="cuthonlight" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120">
+      <rect x="-10" y="-10" width="120" height="120" fill="#fff"/>
+      <rect x="35.2" y="40.4" width="61" height="46" rx="18" fill="#000"/>
+    </mask>
+    <g mask="url(#cuthonlight)">
+      <rect x="9.2" y="19.1" width="40" height="28" rx="10" fill="none" stroke="#161616" stroke-width="5" opacity=".36" stroke-linejoin="round"/>
+      <path d="M21.2 37.1 H37.2" fill="none" stroke="#161616" stroke-width="5" opacity=".36" stroke-linecap="round"/>
+    </g>
+    <rect x="41.7" y="46.9" width="48" height="33" rx="11.5" fill="none" stroke="#161616" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M53.7 63.4 H77.7" fill="none" stroke="#710014" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(4136.96 0.00)">
+    <path d="M151.0 0V-1440H779.0Q1288.0 -1440 1288.0 -1038Q1288.0 -634 756.0 -634H410.0V0ZM1010.0 0 608.0 -705H897.0L1302.0 0ZM410.0 -839H768.0Q893.0 -839 960.5 -889.5Q1028.0 -940 1028.0 -1036Q1028.0 -1132 959.5 -1184.0Q891.0 -1236 765.0 -1236H410.0Z" fill="#161616"/>
+    <path d="M1893.792 25Q1736.792 25 1615.792 -44.0Q1494.792 -113 1425.792 -240.0Q1356.792 -367 1356.792 -540Q1356.792 -713 1424.792 -840.0Q1492.792 -967 1612.792 -1036.0Q1732.792 -1105 1889.792 -1105Q1977.792 -1105 2067.292 -1078.0Q2156.792 -1051 2231.292 -982.5Q2305.792 -914 2351.792 -793.5Q2397.792 -673 2397.792 -488H1515.792V-645H2177.792L2139.792 -588Q2133.792 -709 2098.292 -782.5Q2062.792 -856 2007.292 -889.5Q1951.792 -923 1883.792 -923Q1797.792 -923 1738.792 -876.5Q1679.792 -830 1649.292 -743.5Q1618.792 -657 1618.792 -539Q1618.792 -363 1687.792 -263.5Q1756.792 -164 1891.792 -164Q1983.792 -164 2048.792 -211.0Q2113.792 -258 2145.792 -351L2375.792 -287Q2336.792 -182 2264.792 -113.0Q2192.792 -44 2096.792 -9.5Q2000.792 25 1893.792 25Z" fill="#161616"/>
+    <path d="M2997.584 25Q2833.584 25 2714.584 -44.0Q2595.584 -113 2531.084 -240.0Q2466.584 -367 2466.584 -540Q2466.584 -714 2531.084 -841.0Q2595.584 -968 2714.584 -1036.5Q2833.584 -1105 2996.584 -1105Q3115.584 -1105 3215.584 -1062.0Q3315.584 -1019 3385.584 -935.0Q3455.584 -851 3483.584 -729L3243.584 -675Q3219.584 -794 3156.084 -855.5Q3092.584 -917 2995.584 -917Q2863.584 -917 2796.584 -815.0Q2729.584 -713 2729.584 -538Q2729.584 -363 2796.084 -263.0Q2862.584 -163 2995.584 -163Q3090.584 -163 3154.584 -220.0Q3218.584 -277 3245.584 -390L3479.584 -340Q3457.584 -248 3411.584 -179.5Q3365.584 -111 3301.084 -65.5Q3236.584 -20 3159.584 2.5Q3082.584 25 2997.584 25Z" fill="#161616"/>
+    <path d="M4072.3759999999997 25Q3908.3759999999997 25 3789.3759999999997 -44.0Q3670.3759999999997 -113 3605.8759999999997 -240.0Q3541.3759999999997 -367 3541.3759999999997 -540Q3541.3759999999997 -714 3605.8759999999997 -841.0Q3670.3759999999997 -968 3789.3759999999997 -1036.5Q3908.3759999999997 -1105 4071.3759999999997 -1105Q4190.376 -1105 4290.376 -1062.0Q4390.376 -1019 4460.376 -935.0Q4530.376 -851 4558.376 -729L4318.376 -675Q4294.376 -794 4230.876 -855.5Q4167.376 -917 4070.3759999999997 -917Q3938.3759999999997 -917 3871.3759999999997 -815.0Q3804.3759999999997 -713 3804.3759999999997 -538Q3804.3759999999997 -363 3870.8759999999997 -263.0Q3937.3759999999997 -163 4070.3759999999997 -163Q4165.376 -163 4229.376 -220.0Q4293.376 -277 4320.376 -390L4554.376 -340Q4532.376 -248 4486.376 -179.5Q4440.376 -111 4375.876 -65.5Q4311.376 -20 4234.376 2.5Q4157.376 25 4072.3759999999997 25Z" fill="#161616"/>
+    <path d="M5151.168 25Q4992.168 25 4870.668 -46.5Q4749.168 -118 4681.668 -245.5Q4614.168 -373 4614.168 -540Q4614.168 -707 4681.668 -834.5Q4749.168 -962 4870.668 -1033.5Q4992.168 -1105 5151.168 -1105Q5310.168 -1105 5431.168 -1033.5Q5552.168 -962 5620.168 -834.5Q5688.168 -707 5688.168 -540Q5688.168 -373 5620.168 -245.5Q5552.168 -118 5430.668 -46.5Q5309.168 25 5151.168 25ZM5151.168 -163Q5278.168 -163 5352.168 -264.5Q5426.168 -366 5426.168 -540Q5426.168 -715 5352.168 -816.0Q5278.168 -917 5151.168 -917Q5023.168 -917 4949.668 -816.0Q4876.168 -715 4876.168 -540Q4876.168 -366 4949.668 -264.5Q5023.168 -163 5151.168 -163Z" fill="#161616"/>
+    <rect x="151.0" y="307.2" width="5537.2" height="174.1" rx="87.0" fill="#710014"/>
+  </g>
+</svg>
+
+    <nav class="navlinks"><a href="./">Home</a><a href="what-we-do.html" aria-current="page">What we do</a></nav>
+    <a class="btn" href="./#analysis"><span class="t-lg">Get Your AI Action Plan</span><span class="t-sm">Get Action Plan</span></a>
+  </div>
+</header>
+
+<main>
+  <section class="steps-sec lead-sec">
+    <div class="wrap">
+      <p class="eb">The good news</p>
+      <h1 style="margin-top:18px;max-width:22ch">Become the obvious answer.</h1>
+      <p class="stone-lead">ChatGPT, Gemini and Claude name two or three businesses every time someone asks. We make you one of them — and get them selling you the way your best salesperson would.</p>
+      <ol class="ledger">
+        <li class="lrow">
+          <span class="lnum">01</span>
+          <div class="lhead"><p class="lkick">Recommended</p><h3>Not just named. Recommended.</h3></div>
+          <p class="lbody">Being listed is not being chosen. You get into the answer with a reason attached to your name — the one thing a directory listing can never do for you.</p>
+        </li>
+        <li class="lrow">
+          <span class="lnum">02</span>
+          <div class="lhead"><p class="lkick">Warmer leads</p><h3>They call you already sold.</h3></div>
+          <p class="lbody">AI doesn't just hand over your number, it hands over the reason you're the right shop. Fewer price shoppers, shorter calls, less convincing left to do.</p>
+        </li>
+        <li class="lrow">
+          <span class="lnum">03</span>
+          <div class="lhead"><p class="lkick">Silent losses</p><h3>Stop losing jobs you never hear about.</h3></div>
+          <p class="lbody">There is no missed call to look at. AI gave someone the wrong answer, they called somebody else, and nothing about your day looked any different.</p>
+        </li>
+        <li class="lrow">
+          <span class="lnum">04</span>
+          <div class="lhead"><p class="lkick">Trust</p><h3>A recommendation beats an ad.</h3></div>
+          <p class="lbody">Nobody believes an ad. When an assistant names you, it lands as a neutral answer — closer to a friend's referral than anything you could buy.</p>
+        </li>
+      </ol>
+      <p class="ltotal"><span class="lt-label">Every month</span><span class="lt-text">You see where you show up, what AI says about you, and what moved since last time.</span></p>
+    </div>
+  </section>
+
+  <section class="demo-sec on-dark">
+    <div class="wrap">
+      <p class="eb" style="color:var(--sand)">How the answer gets built</p>
+      <h2 style="margin-top:16px;max-width:24ch">An assistant has no directory of businesses.</h2>
+      <p style="max-width:56ch">Every time someone asks, it builds an answer out of whatever it can find about you. Three things decide whether your name is in it.</p>
+      <ol class="ledger ledger-dark">
+        <li class="lrow">
+          <span class="lnum">01</span>
+          <div class="lhead"><p class="lkick">It reads</p><h3>What's public about you</h3></div>
+          <p class="lbody">Your website, your listings, directories, forums, local news — anything out there that mentions your business. If it is thin, wrong or contradicts itself, the answer is built on that.</p>
+        </li>
+        <li class="lrow">
+          <span class="lnum">02</span>
+          <div class="lhead"><p class="lkick">It weighs</p><h3>What other people say</h3></div>
+          <p class="lbody">Reviews, and the words inside them, count for more than anything you write about yourself. Recent counts for more than old.</p>
+        </li>
+        <li class="lrow">
+          <span class="lnum">03</span>
+          <div class="lhead"><p class="lkick">It answers</p><h3>With two or three names</h3></div>
+          <p class="lbody">Each with a reason attached. There is no page two, and nobody can buy a spot in the answer. That is the whole game.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="wrap close-sec">
+    <p class="eb">Getting started</p>
+    <h2 style="margin-top:16px;max-width:20ch">Two ways in.</h2>
+    <div class="two-doors">
+      <div class="door">
+        <p class="lkick">Start free</p>
+        <h3>See where you stand</h3>
+        <p>A free Visibility Analysis: which answers name you, which name someone else, what is deciding it, and what it is worth.</p>
+        <a class="btn" href="./#analysis">Get Your AI Action Plan</a>
+        <p class="micro">Free · Delivered to your email</p>
+      </div>
+      <div class="door">
+        <p class="lkick">Ready now</p>
+        <h3>Get the numbers</h3>
+        <p>Tell us what you run and we will put together the plans and the prices that fit it — the real numbers, not a range.</p>
+        <button class="btn btn-ghost" type="button" data-ask>Get pricing</button>
+        <p class="micro">Straight numbers for your business</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<footer>
+  <div class="wrap foot">
+    <div><svg class="lk" xmlns="http://www.w3.org/2000/svg" viewBox="236.0 -1896.5 9589.1 2353.1">
+  <g transform="translate(0.00 -2481.28) scale(35.225600)">
+    <mask id="cutfootondark" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120">
+      <rect x="-10" y="-10" width="120" height="120" fill="#fff"/>
+      <rect x="35.2" y="40.4" width="61" height="46" rx="18" fill="#000"/>
+    </mask>
+    <g mask="url(#cutfootondark)">
+      <rect x="9.2" y="19.1" width="40" height="28" rx="10" fill="none" stroke="#F2F1ED" stroke-width="5" opacity=".36" stroke-linejoin="round"/>
+      <path d="M21.2 37.1 H37.2" fill="none" stroke="#F2F1ED" stroke-width="5" opacity=".36" stroke-linecap="round"/>
+    </g>
+    <rect x="38.2" y="43.4" width="55" height="40" rx="15" fill="#F2F1ED"/>
+    <path d="M53.7 63.4 H77.7" fill="none" stroke="#710014" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(4136.96 0.00)">
+    <path d="M151.0 0V-1440H779.0Q1288.0 -1440 1288.0 -1038Q1288.0 -634 756.0 -634H410.0V0ZM1010.0 0 608.0 -705H897.0L1302.0 0ZM410.0 -839H768.0Q893.0 -839 960.5 -889.5Q1028.0 -940 1028.0 -1036Q1028.0 -1132 959.5 -1184.0Q891.0 -1236 765.0 -1236H410.0Z" fill="#F2F1ED"/>
+    <path d="M1893.792 25Q1736.792 25 1615.792 -44.0Q1494.792 -113 1425.792 -240.0Q1356.792 -367 1356.792 -540Q1356.792 -713 1424.792 -840.0Q1492.792 -967 1612.792 -1036.0Q1732.792 -1105 1889.792 -1105Q1977.792 -1105 2067.292 -1078.0Q2156.792 -1051 2231.292 -982.5Q2305.792 -914 2351.792 -793.5Q2397.792 -673 2397.792 -488H1515.792V-645H2177.792L2139.792 -588Q2133.792 -709 2098.292 -782.5Q2062.792 -856 2007.292 -889.5Q1951.792 -923 1883.792 -923Q1797.792 -923 1738.792 -876.5Q1679.792 -830 1649.292 -743.5Q1618.792 -657 1618.792 -539Q1618.792 -363 1687.792 -263.5Q1756.792 -164 1891.792 -164Q1983.792 -164 2048.792 -211.0Q2113.792 -258 2145.792 -351L2375.792 -287Q2336.792 -182 2264.792 -113.0Q2192.792 -44 2096.792 -9.5Q2000.792 25 1893.792 25Z" fill="#F2F1ED"/>
+    <path d="M2997.584 25Q2833.584 25 2714.584 -44.0Q2595.584 -113 2531.084 -240.0Q2466.584 -367 2466.584 -540Q2466.584 -714 2531.084 -841.0Q2595.584 -968 2714.584 -1036.5Q2833.584 -1105 2996.584 -1105Q3115.584 -1105 3215.584 -1062.0Q3315.584 -1019 3385.584 -935.0Q3455.584 -851 3483.584 -729L3243.584 -675Q3219.584 -794 3156.084 -855.5Q3092.584 -917 2995.584 -917Q2863.584 -917 2796.584 -815.0Q2729.584 -713 2729.584 -538Q2729.584 -363 2796.084 -263.0Q2862.584 -163 2995.584 -163Q3090.584 -163 3154.584 -220.0Q3218.584 -277 3245.584 -390L3479.584 -340Q3457.584 -248 3411.584 -179.5Q3365.584 -111 3301.084 -65.5Q3236.584 -20 3159.584 2.5Q3082.584 25 2997.584 25Z" fill="#F2F1ED"/>
+    <path d="M4072.3759999999997 25Q3908.3759999999997 25 3789.3759999999997 -44.0Q3670.3759999999997 -113 3605.8759999999997 -240.0Q3541.3759999999997 -367 3541.3759999999997 -540Q3541.3759999999997 -714 3605.8759999999997 -841.0Q3670.3759999999997 -968 3789.3759999999997 -1036.5Q3908.3759999999997 -1105 4071.3759999999997 -1105Q4190.376 -1105 4290.376 -1062.0Q4390.376 -1019 4460.376 -935.0Q4530.376 -851 4558.376 -729L4318.376 -675Q4294.376 -794 4230.876 -855.5Q4167.376 -917 4070.3759999999997 -917Q3938.3759999999997 -917 3871.3759999999997 -815.0Q3804.3759999999997 -713 3804.3759999999997 -538Q3804.3759999999997 -363 3870.8759999999997 -263.0Q3937.3759999999997 -163 4070.3759999999997 -163Q4165.376 -163 4229.376 -220.0Q4293.376 -277 4320.376 -390L4554.376 -340Q4532.376 -248 4486.376 -179.5Q4440.376 -111 4375.876 -65.5Q4311.376 -20 4234.376 2.5Q4157.376 25 4072.3759999999997 25Z" fill="#F2F1ED"/>
+    <path d="M5151.168 25Q4992.168 25 4870.668 -46.5Q4749.168 -118 4681.668 -245.5Q4614.168 -373 4614.168 -540Q4614.168 -707 4681.668 -834.5Q4749.168 -962 4870.668 -1033.5Q4992.168 -1105 5151.168 -1105Q5310.168 -1105 5431.168 -1033.5Q5552.168 -962 5620.168 -834.5Q5688.168 -707 5688.168 -540Q5688.168 -373 5620.168 -245.5Q5552.168 -118 5430.668 -46.5Q5309.168 25 5151.168 25ZM5151.168 -163Q5278.168 -163 5352.168 -264.5Q5426.168 -366 5426.168 -540Q5426.168 -715 5352.168 -816.0Q5278.168 -917 5151.168 -917Q5023.168 -917 4949.668 -816.0Q4876.168 -715 4876.168 -540Q4876.168 -366 4949.668 -264.5Q5023.168 -163 5151.168 -163Z" fill="#F2F1ED"/>
+    
+  </g>
+</svg>
+</div>
+    <nav class="sitemap" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="what-we-do.html">What we do</a>
+      <a href="./#analysis">Free visibility analysis</a>
+      <a href="#" data-ask>Pricing</a>
+    </nav>
+    <p class="meta" id="footmeta"></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var C = window.RECCO || {};
+  // fill the turnaround placeholders + footer from the config block
+  document.body.innerHTML = document.body.innerHTML.split("{TURNAROUND}").join(C.TURNAROUND || "one business day");
+
+  var fm = document.getElementById("footmeta");
+  var bits = [];
+  if (C.EMAIL)  bits.push('<a href="mailto:' + C.EMAIL + '">' + C.EMAIL + '</a>');
+  if (C.PHONE)  bits.push(C.PHONE);
+  if (C.CITY)   bits.push(C.CITY);
+  if (C.DOMAIN) bits.push(C.DOMAIN);
+  fm.innerHTML = bits.join("<br>") + "<br>© " + new Date().getFullYear() + " Recco";
+
+  // scroll choreography: staggered reveals, drawn underlines, counting figures
+  (function(){
+    var root = document.documentElement;
+    var reduce = false;
+    try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch(e){}
+    if (!("IntersectionObserver" in window)) return;
+    root.classList.add("js");
+
+    var SEL = ".eb, h1, h2, h3, .lead, .hero .cta, .plats, .asked, .panel, .illus," +
+              " .stats > .stat, .aside, .index-grid > li, .cta-row, .samples > div, .foot > *," +
+              " .ledger > li, .ltotal";
+    var seen = [];
+    Array.prototype.forEach.call(document.querySelectorAll("section, footer"), function(sec){
+      var n = 0;
+      Array.prototype.forEach.call(sec.querySelectorAll(SEL), function(el){
+        if (el.closest(".panel") && !el.classList.contains("panel")) return;
+        if (el.closest(".lrow") && !el.classList.contains("lrow")) return;
+        el.setAttribute("data-rv", "");
+        if (el.classList.contains("panel")) el.classList.add("rv-panel");
+        el.style.transitionDelay = Math.min(n * 70, 350) + "ms";
+        n++;
+        seen.push(el);
+      });
+    });
+
+    if (reduce){
+      seen.forEach(function(el){ el.classList.add("in"); });
+    } else {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { rootMargin: "0px 0px -12% 0px", threshold: 0.15 });
+      seen.forEach(function(el){ io.observe(el); });
+    }
+
+    // the lit line: draws on entry, retracts on exit — every pass, both directions
+    var sigs = document.querySelectorAll(".sig");
+    if (reduce){
+      Array.prototype.forEach.call(sigs, function(s){ s.classList.add("lit"); });
+    } else {
+      var lo = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) e.target.classList.add("lit");
+          else e.target.classList.remove("lit");
+        });
+      }, { rootMargin: "-14% 0px -14% 0px", threshold: 0 });
+      Array.prototype.forEach.call(sigs, function(s){ lo.observe(s); });
+    }
+
+    // figures count up once
+    Array.prototype.forEach.call(document.querySelectorAll(".fig"), function(fig){
+      var raw = fig.textContent.trim();
+      var m = raw.match(/^(\d+)(.*)$/);
+      if (!m || reduce) return;
+      var target = parseInt(m[1], 10), tail = m[2], started = false;
+      var co = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (!e.isIntersecting || started) return;
+          started = true;
+          co.disconnect();
+          var t0 = performance.now(), dur = 1100;
+          (function step(now){
+            var k = Math.min((now - t0) / dur, 1);
+            var eased = 1 - Math.pow(1 - k, 3);
+            fig.firstChild.nodeValue = Math.round(target * eased) + tail;
+            if (k < 1) requestAnimationFrame(step);
+          })(t0);
+        });
+      }, { threshold: 0.6 });
+      co.observe(fig);
+    });
+
+    // scroll progress
+    if (!reduce){
+      var bar = document.createElement("div");
+      bar.className = "prog";
+      document.body.appendChild(bar);
+      var ticking = false;
+      function draw(){
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+        ticking = false;
+      }
+      window.addEventListener("scroll", function(){
+        if (!ticking){ ticking = true; requestAnimationFrame(draw); }
+      }, { passive: true });
+      draw();
+    }
+  })();
+
+  // the answer panel types itself out when it scrolls into view
+  (function(){
+    var panel = document.querySelector(".panel");
+    if (!panel || !window.IntersectionObserver) return;
+    var q = panel.querySelector(".q");
+    if (!q) return;
+    var full = q.textContent, reduce = false;
+    try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch(e){}
+    var caret = document.createElement("span");
+    caret.className = "caret";
+    var think = panel.querySelector(".think");
+    var word = panel.querySelector(".tword");
+    var phrases = ["Searching the web", "Researching competitors", "Digging deeper", "Finalizing decision"];
+    var timer, wait, swap, cycle, playing = false;
+
+    function thinkThen(done){
+      var i = 0;
+      think.hidden = false;
+      word.textContent = phrases[0];
+      word.style.opacity = 1;
+      cycle = setInterval(function(){
+        i++;
+        if (i >= phrases.length){
+          clearInterval(cycle);
+          think.hidden = true;
+          done();
+          return;
+        }
+        word.style.opacity = 0;
+        swap = setTimeout(function(){
+          word.textContent = phrases[i];
+          word.style.opacity = 1;
+        }, 170);
+      }, 1140);
+    }
+
+    function run(){
+      if (playing) return;
+      playing = true;
+      panel.classList.add("play");
+      panel.classList.remove("run");
+      if (reduce){ panel.classList.add("run"); return; }
+      q.textContent = "";
+      q.appendChild(caret);
+      var i = 0;
+      clearInterval(timer);
+      timer = setInterval(function(){
+        i++;
+        q.textContent = full.slice(0, i);
+        q.appendChild(caret);
+        if (i >= full.length){
+          clearInterval(timer);
+          if (caret.parentNode) caret.parentNode.removeChild(caret);
+          if (think && !reduce) { thinkThen(function(){ panel.classList.add("run"); }); }
+          else { panel.classList.add("run"); }
+        }
+      }, 32);
+    }
+
+    function reset(){
+      playing = false;
+      clearInterval(timer);
+      clearTimeout(wait);
+      clearTimeout(swap);
+      clearInterval(cycle);
+      if (think) think.hidden = true;
+      q.textContent = full;
+      panel.classList.remove("play", "run");
+    }
+
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) run(); else reset();
+      });
+    }, { threshold: 0.45 }).observe(panel);
+  })();
+
+  var f = document.getElementById("f"), go = document.getElementById("go"), msg = document.getElementById("msg");
+  if (!f) return;
+
+  function show(kind, text){ msg.className = "msg " + kind; msg.textContent = text; }
+
+  function done(email){
+    document.getElementById("card").innerHTML =
+      '<div class="done"><h3>Your analysis is on its way.</h3>' +
+      '<p>We\'ll run it and send it to <strong>' + String(email).replace(/[<>&]/g,"") +
+      '</strong> within ' + (C.TURNAROUND || "one business day") +
+      '. If it hasn\'t arrived by then, check spam before you write us off.</p></div>';
+  }
+
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    // honeypot: show the same success state, send nothing
+    if (document.getElementById("ref").value) return done(f.email.value.trim());
+
+    var data = {
+      business: f.business.value.trim(),
+      website:  f.website.value.trim(),
+      city:     f.city.value.trim(),
+      email:    f.email.value.trim(),
+      what:     f.what.value.trim(),
+      source:   (C.DOMAIN || "recco") + " landing",
+      submitted_at: new Date().toISOString()
+    };
+
+    if (!data.business || !data.website || !data.city) return show("err", "Please fill in your business, website and city.");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email))       return show("err", "That email doesn't look right — mind checking it?");
+
+    // No webhook configured yet → fall back to email so the page is never a dead end.
+    if (!C.WEBHOOK_URL) {
+      var body = Object.keys(data).map(function(k){ return k + ": " + data[k]; }).join("\n");
+      window.location.href = "mailto:" + (C.EMAIL || "") +
+        "?subject=" + encodeURIComponent("Visibility analysis request — " + data.business) +
+        "&body=" + encodeURIComponent(body);
+      return show("ok", "Opening your email app — send that message and we'll take it from there.");
+    }
+
+    go.disabled = true; go.textContent = "Sending…"; show("", "");
+
+    fetch(C.WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(function(r){ if (!r.ok) throw new Error(r.status); return r; })
+    .then(function(){ done(data.email); })
+    .catch(function(){
+      go.disabled = false; go.textContent = "Get my analysis";
+      show("err", "Something went wrong on our end. Email " + (C.EMAIL || "us") + " and we'll run it manually.");
+    });
+  });
+})();
+</script>
+
+<div class="ask" id="ask" hidden>
+  <div class="ask-bd" data-close></div>
+  <div class="ask-card" role="dialog" aria-modal="true" aria-labelledby="ask-t">
+    <button class="ask-x" type="button" data-close aria-label="Close">&times;</button>
+    <p class="ask-eb">Pricing</p>
+    <h3 id="ask-t">What it costs.</h3>
+    <p class="ask-sub">Tell us what you run and we will put together the plans and the prices that fit it — the real numbers, not a range.</p>
+    <form id="af" novalidate>
+      <div class="fld"><label for="a-biz">Business name</label>
+        <input id="a-biz" name="biz" autocomplete="organization"></div>
+      <div class="fld"><label for="a-name">Your name</label>
+        <input id="a-name" name="name" autocomplete="name"></div>
+      <div class="fld"><label for="a-email">Email</label>
+        <input id="a-email" name="email" type="email" autocomplete="email" inputmode="email"></div>
+      <div class="fld"><label for="a-q">Anything we should know? <span class="opt">optional</span></label>
+        <textarea id="a-q" name="q" placeholder="Trade, service area, what you have tried so far."></textarea></div>
+      <input class="hp" id="a-ref" name="ref" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn" id="a-go" type="submit">Send me pricing</button>
+      <p class="msg" id="a-msg"></p>
+      <p class="fine">Prices come back by email, usually the same day.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+// the ask dialog
+(function(){
+  var C = window.RECCO || {};
+  var modal = document.getElementById("ask");
+  if (!modal) return;
+  var card = modal.querySelector(".ask-card"), returnTo = null;
+
+  function openAsk(){
+    returnTo = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    var first = card.querySelector("input:not(.hp), textarea");
+    if (first) setTimeout(function(){ first.focus(); }, 40);
+  }
+  function closeAsk(){
+    modal.hidden = true;
+    document.body.style.overflow = "";
+    if (returnTo && returnTo.focus) returnTo.focus();
+  }
+
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.closest && t.closest("[data-ask]")){ e.preventDefault(); return openAsk(); }
+    if (!modal.hidden && t.closest && t.closest("[data-close]")) closeAsk();
+  });
+
+  document.addEventListener("keydown", function(e){
+    if (modal.hidden) return;
+    if (e.key === "Escape" || e.key === "Esc") return closeAsk();
+    if (e.key !== "Tab") return;
+    var f = card.querySelectorAll("button, input:not(.hp), textarea, a[href]");
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  });
+
+  var af = document.getElementById("af"), ago = document.getElementById("a-go"), amsg = document.getElementById("a-msg");
+  function say(kind, text){ amsg.className = "msg " + kind; amsg.textContent = text; }
+  function thanks(){
+    card.innerHTML = '<div class="done"><h3>On its way.</h3>' +
+      '<p>We will put the plans and prices together for your business and email them over, usually the same day.</p>' +
+      '<button class="btn" type="button" data-close style="margin-top:18px">Close</button></div>';
+    var b = card.querySelector("button"); if (b) b.focus();
+  }
+
+  af.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (document.getElementById("a-ref").value) return thanks();  // honeypot
+
+    var data = {
+      business: document.getElementById("a-biz").value.trim(),
+      name:     document.getElementById("a-name").value.trim(),
+      email:    document.getElementById("a-email").value.trim(),
+      note:     document.getElementById("a-q").value.trim(),
+      kind:     "pricing",
+      source:   (C.DOMAIN || "recco") + " landing",
+      submitted_at: new Date().toISOString()
+    };
+    if (!data.business) return say("err", "Add your business name so we can price it properly.");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) return say("err", "That email doesn't look right — mind checking it?");
+
+    if (!C.WEBHOOK_URL){
+      window.location.href = "mailto:" + (C.EMAIL || "") +
+        "?subject=" + encodeURIComponent("Pricing request — " + data.business) +
+        "&body=" + encodeURIComponent("Business: " + data.business + "\nName: " + data.name +
+                    "\nEmail: " + data.email + "\n\n" + data.note);
+      return say("ok", "Opening your email app — send that and we'll take it from there.");
+    }
+
+    ago.disabled = true; ago.textContent = "Sending…"; say("", "");
+    fetch(C.WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(function(r){ if (!r.ok) throw new Error(r.status); return r; })
+    .then(thanks)
+    .catch(function(){
+      ago.disabled = false; ago.textContent = "Send me pricing";
+      say("err", "Something went wrong on our end. Email " + (C.EMAIL || "us") + " directly and we'll send it over.");
+    });
+  });
+})();
+</script>
+</body>
+</html>

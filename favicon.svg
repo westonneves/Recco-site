@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <mask id="cut-favicon" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120">
+    <rect x="-10" y="-10" width="120" height="120" fill="#fff"/>
+    <rect x="30.5" y="35.9" width="70" height="55" rx="22" fill="#000"/>
+  </mask>
+  <g mask="url(#cut-favicon)">
+    <rect x="5.5" y="16.6" width="47" height="34" rx="12" fill="none" stroke="#161616" stroke-width="9" opacity=".4" stroke-linejoin="round"/>
+  </g>
+  <rect x="41.7" y="46.9" width="48" height="33" rx="11.5" fill="none" stroke="#710014" stroke-width="11" stroke-linejoin="round"/>
+</svg>
